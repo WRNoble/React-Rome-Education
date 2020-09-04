@@ -5,6 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./App.css";
 
+import HomePage from "./pages/HomePage";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,7 @@ class App extends Component {
         { title: "Home", path: "/" },
         { title: "Sign up", path: "/join" },
         { title: "Log In", path: "/signin" },
+        { title: "Classes", path: "/classes" },
       ],
       home: {
         title: "Ancient Rome, at your finger tips.",
@@ -33,6 +36,9 @@ class App extends Component {
       login: {
         title: "Welcome back, we're glad your here.",
       },
+      classes: {
+        title: "View our class offerings below",
+      },
     };
   }
   render() {
@@ -47,22 +53,54 @@ class App extends Component {
               <a href={"/"} className="text-white text-decoration-none">
                 Cicero's Academy
               </a>
-              <Navbar.Toggle
-                className="border-0"
-                aria-controls="navbar-toggle"
-              />
-              <Navbar.Collapse id="navbar-toggle">
-                <Nav className="ml-auto">
-                  <Link className="nav-link" to="/join">
-                    Sign Up!
-                  </Link>
-                  <Link className="nav-link" to="/signin">
-                    Log In
-                  </Link>
-                </Nav>
-              </Navbar.Collapse>
             </Navbar.Brand>
+            <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
+            <Navbar.Collapse id="navbar-toggle">
+              <Nav className="ml-auto">
+                <Link className="nav-link" to="/join">
+                  Sign Up!
+                </Link>
+                <Link className="nav-link" to="/signin">
+                  Log In
+                </Link>
+                <Link className="nav-link" to="/classes">
+                  Classes
+                </Link>
+              </Nav>
+            </Navbar.Collapse>
           </Navbar>
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <HomePage
+                title={this.state.home.title}
+                text={this.state.home.text}
+                subtext={this.state.home.subtext}
+                subtexttwo={this.state.home.subtexttwo}
+              />
+            )}
+          />
+          <Route
+            path="/join"
+            exact
+            render={() => (
+              <JoinPage
+                title={this.state.join.title}
+                text={this.state.join.text}
+              />
+            )}
+          />
+          <Route
+            path="/signin"
+            exact
+            render={() => <SignInPage title={this.state.login.title} />}
+          />
+          <Route
+            path="/classes"
+            exact
+            render={() => <ClassesPage title={this.state.classes.title} />}
+          />
         </Container>
       </Router>
     );
