@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import "./App.css";
 
 import HomePage from "./pages/HomePage";
+import ClassesPage from "./pages/ClassesPage";
 
 class App extends Component {
   constructor(props) {
@@ -15,8 +16,8 @@ class App extends Component {
       title: "Cicero's Academy",
       headerLinks: [
         { title: "Home", path: "/" },
-        { title: "Sign up", path: "/join" },
-        { title: "Log In", path: "/signin" },
+        // { title: "Sign up", path: "/join" },
+        // { title: "Log In", path: "/signin" },
         { title: "Classes", path: "/classes" },
       ],
       home: {
@@ -28,16 +29,16 @@ class App extends Component {
         subtexttwo:
           "Classes offered on import individuals from Cincinnatus to the last emperor",
       },
-      join: {
-        title:
-          "Hello and welcome, your journey through Ancient Rome is about to begin!",
-        text: "Subscription is free, and always will be!",
-      },
-      login: {
-        title: "Welcome back, we're glad your here.",
-      },
+      // join: {
+      //   title:
+      //     "Hello and welcome, your journey through Ancient Rome is about to begin!",
+      //   text: "Subscription is free, and always will be!",
+      // },
+      // login: {
+      //   title: "Welcome back, we're glad your here.",
+      // },
       classes: {
-        title: "View our class offerings below",
+        title: "View our class offerings",
       },
     };
   }
@@ -57,12 +58,12 @@ class App extends Component {
             <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
             <Navbar.Collapse id="navbar-toggle">
               <Nav className="ml-auto">
-                <Link className="nav-link" to="/join">
+                {/* <Link className="nav-link" to="/join">
                   Sign Up!
                 </Link>
                 <Link className="nav-link" to="/signin">
                   Log In
-                </Link>
+                </Link> */}
                 <Link className="nav-link" to="/classes">
                   Classes
                 </Link>
@@ -81,7 +82,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
+          {/* <Route
             path="/join"
             exact
             render={() => (
@@ -95,7 +96,7 @@ class App extends Component {
             path="/signin"
             exact
             render={() => <SignInPage title={this.state.login.title} />}
-          />
+          /> */}
           <Route
             path="/classes"
             exact

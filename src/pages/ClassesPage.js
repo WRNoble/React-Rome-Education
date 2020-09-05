@@ -1,10 +1,12 @@
 import React from "react";
+import Poster from "../components/Poster";
 
-class ClassesPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+function ClassesPage(props) {
+  return (
+    <div>
+      <Poster title={props.title} />
+    </div>
+  );
 }
 
 export default ClassesPage;
